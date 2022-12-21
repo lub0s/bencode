@@ -1,0 +1,30 @@
+name: "Test"
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: jdk
+        uses: actions/setup-java@v2.3.0
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - name: gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-home-cache-cleanup: true
+
+      - name: test
+        run: |
+          ./gradlew check
