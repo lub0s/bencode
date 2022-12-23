@@ -1,7 +1,5 @@
 package dev.lubos.bencode
 
-internal val skippableChars = setOf(' ', '\n')
-
 class BencodeParser {
 
 	fun encode(input: Any): String = when (input) {
@@ -23,7 +21,7 @@ class BencodeParser {
 	internal fun decodeInternal(input: String): Pair<Bencode, Int> {
 		var index = 0
 
-		while (input[index] == ' ' || input[index] == '\n') {
+		while (!input[index].isLetterOrDigit()) {
 			index += 1
 		}
 
@@ -60,7 +58,7 @@ class BencodeParser {
 		var index = 1
 		while (index < input.length) {
 			// todo: improve
-			if (input[index] in skippableChars) {
+			if (!input[index].isLetterOrDigit()) {
 				index += 1
 				continue
 			}
@@ -82,7 +80,7 @@ class BencodeParser {
 
 		while (index < input.length) {
 			// todo: improve
-			if (input[index] in skippableChars) {
+			if (!input[index].isLetterOrDigit()) {
 				index += 1
 				continue
 			}
