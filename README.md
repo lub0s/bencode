@@ -1,3 +1,3 @@
 ## Bencode
 
-~ https://github.com/jackpal/bencode-go
+[Bencoding](https://en.wikipedia.org/wiki/Bencode) 
