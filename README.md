@@ -1,3 +1,3 @@
-## Bencode
+## Bencode encoding
 
-[Bencoding encoding](https://en.wikipedia.org/wiki/Bencode) 
+[Wikipedia](https://en.wikipedia.org/wiki/Bencode) 
